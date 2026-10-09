@@ -1,0 +1,23 @@
+{
+  "scenario": "EXAMPLE: delayed offboarding leads to misuse of a former employee's account",
+  "seed": 42,
+  "summary": {
+    "iterations": 100000,
+    "mean": 38026.19257643534,
+    "median": 0.0,
+    "p90": 80338.28664994657,
+    "p95": 233590.2781814485,
+    "p99": 868108.6132053428,
+    "prob_any_loss": 0.11837,
+    "risk_tolerance_usd": 250000.0,
+    "prob_exceeds_tolerance": 0.04644
+  },
+  "base_case_expected_annual_loss": 9150.0,
+  "expected_loss_swing_by_input": {
+    "threat_event_frequency": 59475.0,
+    "secondary_loss": 29250.0,
+    "primary_loss": 28800.0,
+    "vulnerability": 25162.5,
+    "secondary_loss_probability": 9750.0
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "example_only": true,
+  "scenario": "EXAMPLE: delayed offboarding leads to misuse of a former employee's account",
+  "iterations": 100000,
+  "seed": 42,
+  "risk_tolerance_usd": 250000,
+  "estimates": {
+    "threat_event_frequency": {
+      "label": "Threat events per year (a departed user's access is attempted or misused)",
+      "min": 0.05, "most_likely": 0.3, "max": 2.0
+    },
+    "vulnerability": {
+      "label": "Probability a threat event becomes a loss event (access still active and useful)",
+      "min": 0.05, "most_likely": 0.2, "max": 0.6
+    },
+    "primary_loss": {
+      "label": "Primary loss per loss event, USD (investigation, response, remediation)",
+      "min": 20000, "most_likely": 90000, "max": 500000
+    },
+    "secondary_loss_probability": {
+      "label": "Probability a loss event also triggers secondary loss (notification, legal, client impact)",
+      "min": 0.05, "most_likely": 0.25, "max": 0.7
+    },
+    "secondary_loss": {
+      "label": "Secondary loss when it occurs, USD",
+      "min": 50000, "most_likely": 250000, "max": 2000000
+    }
+  }
+}
