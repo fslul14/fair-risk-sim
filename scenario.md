@@ -24,12 +24,14 @@ The model treats min and max as hard limits (nothing outside them is possible). 
 - max: 0.6
 - Why: About 190 departures a year. I assume roughly 8 are contentious (4 to 15) and about 1% of those try to reach client data (0.3% low, 3% high), plus a tiny rate among friendly departures (0.01%, up to 0.05%). Likely: 8 x 1% + 182 x 0.01% = about 0.1 a year, one attempt every ten years. Low: 4 x 0.3% + 182 x 0.01% = about 0.03. High: 15 x 3% + 182 x 0.05% = about 0.55.
 - Cross-check, and why it is weak: no attempt has been caught in about 5 years (950 departures). The rule of three says that if nothing is seen in n trials, the true rate is at most about 3 per n at 95% confidence: 3 / 950 = 0.3% per departure, or about 0.6 *caught* attempts a year. That caps caught attempts only. Detection is weak: if only 60% of attempts would be caught, the true rate could be as high as 0.6 / 0.6 = about 1 a year, and if 30%, about 2. So my max of 0.6 is not a ceiling; it is the top of what I judge plausible, and the clean record is weak evidence against anything much higher. This is the input I trust least, and the README tests what happens if it is higher.
+- Published surveys (listed in the README) suggest this range is plausible but low-leaning. I kept it, and the README sweep shows what happens if the true rate is 2 to 5 times higher.
 
 ### Vulnerability (chance an attempt succeeds)
 - min: 0.05
 - most likely: 0.2
 - max: 0.5
 - Why: Two steps. First, does access still work when they try? About 30%: SSO is off within 24 hours at best, 13 apps are cleaned by hand, shared credentials rotate only each quarter, and contractor departures are recorded late. The split of that 30% by route and by who left is in the table below. Second, do they read or copy data before anyone notices? About 70%, because logs are reviewed only when alerts fire. 0.3 x 0.7 = about 0.2. MFA does not lower this much: it stops outsiders, not a former insider whose phone is still enrolled while the SSO account is active. Low: SSO disabled fast and no shared credential known. High: quarter-end backlog plus a known shared credential.
+- Cross-check: in a 2009 Ponemon survey, about 1 in 4 leavers could still access data after leaving, close to the 30% above.
 
 ### Primary loss (USD per event)
 - min: 15,000

@@ -10,7 +10,8 @@ I built this with Claude (Anthropic). Claude wrote the simulation code, the cali
 
 | Date | Input | Was | Now | Why |
 |---|---|---|---|---|
-| none yet | | | | |
+| 2026-10-10 | Threat event frequency | 0.03 / 0.1 / 0.6 | unchanged | Compared with three published surveys (see Published anchors). They suggest this range is plausible but low-leaning. I chose to keep it, and the sweep below shows the results if the true rate is 2 to 5 times higher. |
+| 2026-10-10 | Vulnerability | 0.05 / 0.2 / 0.5 | unchanged | About 1 in 4 leavers could still access data in the Ponemon survey, close to my 30% "access still works" step. Kept. |
 
 An independent reviewer (a separate Claude instance given only the files) checked the first draft and found problems. The corrections are:
 
@@ -49,6 +50,16 @@ Each input is a range (minimum, most likely, maximum) sampled with a PERT distri
 | **With automation:** vulnerability | 0.035 | 0.14 | 0.35 | Today's range times 0.70. The tool fixes employees' SSO and 9 of 13 manual apps. Contractors are recorded late and shared credentials are still rotated quarterly, so about 21 of today's 30 points of exposure remain (table in `scenario.md`). Everything else unchanged. |
 
 The full reasoning for each range and the assumptions log are in `scenario.md`.
+
+### Published anchors
+
+Checked on 2026-10-10. All three are self-reported, older, and not about this exact scenario, so they bound my estimates rather than measure them.
+
+- Ponemon Institute for Symantec, 2009 (945 people who left jobs in 2008): 59% kept company data; almost a quarter could still access data after leaving, and about a third of those said their credentials still worked. ([eWeek](https://www.eweek.com/fr/security/survey-axed-employees-often-walk-out-with-corporate-data/))
+- Tessian, 2022 (2,000 UK workers): 29% admitted taking data when leaving a job. ([Infosecurity Magazine](https://www.infosecurity-magazine.com/news/third-employees-exfiltrating-data))
+- OneLogin, 2017 (500 IT staff): nearly half of businesses say former employees can still access corporate accounts; 20% report a breach caused by former staff; half say accounts stay active for more than a day. ([Dark Reading](https://www.darkreading.com/vulnerabilities-threats/50-of-ex-employees-still-have-access-to-corporate-applications))
+
+How they bear on the inputs: about 1 in 4 leavers able to get in is close to my 30% "access still works" step. Taking data on the way out is common, but it is mostly people's own files taken before they leave, so it is not the same as my attempt rate. The 20% breach figure suggests very roughly 0.02 to 0.2 loss events a year for a firm like this (the survey does not state the time span); my draft implies about 0.04, at the low end. I kept the draft and rely on the sweep below to show what happens if the true rate is higher.
 
 ## Results
 
