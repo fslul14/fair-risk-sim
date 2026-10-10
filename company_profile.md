@@ -1,8 +1,8 @@
 # Fictional company profile: M&F Analysis
 
-> **This company is fictional.** Every detail below is invented for this exercise and is not based on any real
-> organization, client, or incident. Any resemblance to a real company is coincidental. (Do a quick web search
-> on the name before publishing in case it collides with a real firm; if it does, rename it.)
+> **This company is fictional.** Every detail below is invented for this exercise (by Claude, as the starting
+> material) and is not based on any real organization, client, or incident. Any resemblance to a real company
+> is coincidental.
 
 ## The business
 - B2B analytics firm that builds dashboards and data pipelines for mid-size retailers and logistics companies.
@@ -43,12 +43,9 @@ trigger SSO disablement within about 1 hour and automatically remove access in a
 aren't behind SSO. The quote is about **$140K a year plus about $40K one-time** for integration. The alternative is
 to keep the manual process and accept the risk.
 
-## Deliberately left blank (your job)
-- Threat event frequency, vulnerability, and loss ranges
-- The board's risk tolerance threshold
-- Your reasoning for each range
+## What this profile does not contain
+It gives no threat frequencies, loss amounts, or risk tolerance. Those are the estimates in `scenario.md`.
 
-## Suggested scenario (you may change it)
+## Scenario used
 A former employee or contractor whose access was not removed in time uses it to read client data. The profile
-supports other scenarios too, such as an outside attacker using a forgotten account, but pick one threat
-community and list the other as out of scope.
+supports other scenarios too, such as an outside attacker using a forgotten account; those are out of scope.

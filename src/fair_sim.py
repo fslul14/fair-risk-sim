@@ -14,8 +14,21 @@ Model (one simulated year per iteration)
     S     events with secondary loss                 ~ Binomial(N, SLP)
     Annual loss = N * PL + S * SL
 
-Simplification (v1): epistemic draws (TEF, Vuln, PL, SLP, SL) are made once per
-simulated year, so every event in the same year shares the same PL and SL.
+Simplifications
+    - Each uncertain input (TEF, Vuln, PL, SLP, SL) is drawn once per simulated year and
+      shared by every event that year, so all events in a year cost the same.
+    - The inputs are drawn independently of each other.
+    - The resulting distribution mixes two kinds of uncertainty: what the true rates and
+      costs are (my ranges) and which events happen this year (Poisson and Binomial).
+      Read it as "the chance of a year like this, given what I know today".
+    - Each input has its own random stream (seeded from one seed), so an input that is
+      identical in two scenario files gets identical draws in both runs.
+
+Exact check
+    Because the inputs are independent, expected annual loss has a closed form:
+    mean(TEF) * mean(Vuln) * (mean(PL) + mean(SLP) * mean(SL)), where a PERT mean is
+    (min + 4 * most likely + max) / 6. The simulated mean must agree with it to within
+    its standard error; both are written to results.json.
 
 Usage
     python src/fair_sim.py inputs.json --out output
@@ -97,11 +110,14 @@ def pert(rng: np.random.Generator, spec: dict, size: int) -> np.ndarray:
 # Simulation
 # ----------------------------------------------------------------------------
 def simulate(est: dict, n: int, seed: int) -> dict[str, np.ndarray]:
-    rng = np.random.default_rng(seed)
-    draws = {k: pert(rng, est[k], n) for k in REQUIRED}
+    # One independent random stream per input, plus one each for the event counts. Beta
+    # sampling uses a variable amount of randomness, so sharing a single stream would make
+    # every input after a changed one differ between scenarios, even if its range is unchanged.
+    streams = np.random.SeedSequence(seed).spawn(len(REQUIRED) + 2)
+    draws = {k: pert(np.random.default_rng(ss), est[k], n) for k, ss in zip(REQUIRED, streams)}
     lef = draws["threat_event_frequency"] * draws["vulnerability"]
-    events = rng.poisson(lef)
-    with_secondary = rng.binomial(events, draws["secondary_loss_probability"])
+    events = np.random.default_rng(streams[-2]).poisson(lef)
+    with_secondary = np.random.default_rng(streams[-1]).binomial(events, draws["secondary_loss_probability"])
     annual = events * draws["primary_loss"] + with_secondary * draws["secondary_loss"]
     return {"annual_loss": annual, "events": events, **draws}
 
@@ -111,6 +127,7 @@ def summarize(sim: dict, tolerance: float | None) -> dict:
     out = {
         "iterations": int(loss.size),
         "mean": float(loss.mean()),
+        "mean_standard_error": float(loss.std(ddof=1) / np.sqrt(loss.size)),
         "median": float(np.median(loss)),
         "p90": float(np.percentile(loss, 90)),
         "p95": float(np.percentile(loss, 95)),
@@ -121,6 +138,18 @@ def summarize(sim: dict, tolerance: float | None) -> dict:
         out["risk_tolerance_usd"] = float(tolerance)
         out["prob_exceeds_tolerance"] = float((loss > tolerance).mean())
     return out
+
+
+def pert_mean(spec: dict) -> float:
+    lo, mode, hi = spec["min"], spec["most_likely"], spec["max"]
+    return (lo + PERT_LAMBDA * mode + hi) / (PERT_LAMBDA + 2)
+
+
+def closed_form_expected_loss(est: dict) -> float:
+    """Exact expected annual loss of the simulated model (valid because the inputs are independent)."""
+    m = {k: pert_mean(est[k]) for k in REQUIRED}
+    return (m["threat_event_frequency"] * m["vulnerability"]
+            * (m["primary_loss"] + m["secondary_loss_probability"] * m["secondary_loss"]))
 
 
 def expected_loss(v: dict) -> float:
@@ -219,7 +248,7 @@ def plot_sensitivity(base: float, swings: dict[str, float], path: Path) -> None:
     for i, v in enumerate(values):
         ax.text(v, i, f"  {usd(v)}", va="center", ha="left", color=INK_2, fontsize=9)
     header(fig, "What moves the expected loss most",
-           f"Change in expected annual loss when one input goes from min to max (base case {usd(base)}/yr)")
+           f"One input moves from min to max, the others stay at most likely (that point estimate is {usd(base)}/yr)")
     fig.savefig(path, dpi=200, facecolor=SURFACE)
     plt.close(fig)
 
@@ -251,6 +280,7 @@ def main() -> None:
     args.out.mkdir(parents=True, exist_ok=True)
     (args.out / "results.json").write_text(json.dumps({
         "scenario": cfg.get("scenario"), "seed": seed, "summary": stats,
+        "expected_annual_loss_closed_form": closed_form_expected_loss(cfg["estimates"]),
         "base_case_expected_annual_loss": base_el, "expected_loss_swing_by_input": swings}, indent=2))
     plot_exceedance(sim, stats, args.out / "loss_exceedance.png", tolerance)
     plot_sensitivity(base_el, swings, args.out / "sensitivity.png")
@@ -258,7 +288,9 @@ def main() -> None:
     print(f"Scenario: {cfg.get('scenario')}")
     print(f"Iterations: {n:,}  seed: {seed}")
     print(f"P(any loss in a year): {stats['prob_any_loss']:.1%}")
-    for label, key in (("Mean", "mean"), ("Median", "median"), ("90th percentile", "p90"),
+    print(f"{'Mean':<16} {usd(stats['mean'])}  (+/- {usd(stats['mean_standard_error'])}; exact value "
+          f"{usd(closed_form_expected_loss(cfg['estimates']))})")
+    for label, key in (("Median", "median"), ("90th percentile", "p90"),
                        ("95th percentile", "p95"), ("99th percentile", "p99")):
         print(f"{label:<16} {usd(stats[key])}")
     if tolerance:

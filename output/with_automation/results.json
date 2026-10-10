@@ -1,0 +1,25 @@
+{
+  "scenario": "M&F Analysis: same scenario with vendor automated deprovisioning in place (SSO off in about 1 hour for employees; 9 of 13 manual apps automated; contractors still recorded late; shared credentials still rotated quarterly)",
+  "seed": 42,
+  "summary": {
+    "iterations": 1000000,
+    "mean": 8177.099145492964,
+    "mean_standard_error": 64.97347735524785,
+    "median": 0.0,
+    "p90": 0.0,
+    "p95": 0.0,
+    "p99": 309732.7848486294,
+    "prob_any_loss": 0.026567,
+    "risk_tolerance_usd": 250000.0,
+    "prob_exceeds_tolerance": 0.011967
+  },
+  "expected_annual_loss_closed_form": 8181.096875000001,
+  "base_case_expected_annual_loss": 2100.0000000000005,
+  "expected_loss_swing_by_input": {
+    "threat_event_frequency": 11970.0,
+    "secondary_loss": 10290.000000000002,
+    "primary_loss": 5390.000000000001,
+    "vulnerability": 4724.999999999999,
+    "secondary_loss_probability": 1260.0000000000002
+  }
+}

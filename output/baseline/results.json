@@ -1,0 +1,25 @@
+{
+  "scenario": "M&F Analysis: a former employee or contractor whose access was not removed in time reads or copies client data in the next 12 months (today's manual offboarding)",
+  "seed": 42,
+  "summary": {
+    "iterations": 1000000,
+    "mean": 11675.51900840331,
+    "mean_standard_error": 77.88262801593174,
+    "median": 0.0,
+    "p90": 0.0,
+    "p95": 0.0,
+    "p99": 431207.9469374799,
+    "prob_any_loss": 0.037516,
+    "risk_tolerance_usd": 250000.0,
+    "prob_exceeds_tolerance": 0.017067
+  },
+  "expected_annual_loss_closed_form": 11687.281250000002,
+  "base_case_expected_annual_loss": 3000.0000000000005,
+  "expected_loss_swing_by_input": {
+    "threat_event_frequency": 17100.0,
+    "secondary_loss": 14700.000000000004,
+    "primary_loss": 7700.000000000002,
+    "vulnerability": 6750.0,
+    "secondary_loss_probability": 1800.0000000000005
+  }
+}

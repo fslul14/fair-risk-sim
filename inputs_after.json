@@ -1,0 +1,15 @@
+{
+  "scenario": "M&F Analysis: same scenario with vendor automated deprovisioning in place (SSO off in about 1 hour for employees; 9 of 13 manual apps automated; contractors still recorded late; shared credentials still rotated quarterly)",
+  "iterations": 1000000,
+  "seed": 42,
+  "risk_tolerance_usd": 250000,
+  "tolerance_max_probability": 0.05,
+  "derivation": "Vulnerability = today's range x 0.70. 0.70 is the share of today's 30-point 'access still works' exposure the tool does not remove (20.9 of 30 points; table in scenario.md). Everything else is unchanged.",
+  "estimates": {
+    "threat_event_frequency": {"label": "Attempts per year (unchanged)", "min": 0.03, "most_likely": 0.1, "max": 0.6},
+    "vulnerability": {"label": "Chance an attempt succeeds (today's range x 0.70)", "min": 0.035, "most_likely": 0.14, "max": 0.35},
+    "primary_loss": {"label": "Primary loss per event (USD, unchanged)", "min": 15000, "most_likely": 75000, "max": 400000},
+    "secondary_loss_probability": {"label": "Chance of secondary loss (unchanged)", "min": 0.25, "most_likely": 0.5, "max": 0.85},
+    "secondary_loss": {"label": "Secondary loss (USD, unchanged)", "min": 30000, "most_likely": 150000, "max": 1500000}
+  }
+}

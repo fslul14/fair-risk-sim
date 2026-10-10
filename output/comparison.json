@@ -1,0 +1,338 @@
+{
+  "before": {
+    "mean": 11675.51900840331,
+    "mean_standard_error": 77.88262801593174,
+    "p99": 431207.9469374799,
+    "prob_any_loss": 0.037516,
+    "prob_exceeds_tolerance": 0.017067
+  },
+  "after": {
+    "mean": 8177.099145492964,
+    "mean_standard_error": 64.97347735524785,
+    "p99": 309732.7848486294,
+    "prob_any_loss": 0.026567,
+    "prob_exceeds_tolerance": 0.011967
+  },
+  "exact_expected_loss": {
+    "before": 11687.281250000002,
+    "after": 8181.096875000001,
+    "reduction_per_year": 3506.1843750000007
+  },
+  "simulated_reduction_per_year": {
+    "value": 3498.419862910345,
+    "standard_error": 101.42611353246707
+  },
+  "annualized_control_cost": 153333.33333333334,
+  "net_benefit_per_year": -149827.14895833333,
+  "ceiling_on_benefit_per_year": 11687.281250000002,
+  "breakeven_threat_multiplier": 43.73225048478328,
+  "cost_assumptions": {
+    "annual": 140000.0,
+    "one_time": 40000.0,
+    "years": 3.0
+  },
+  "tolerance": {
+    "usd": 250000,
+    "max_probability": 0.05,
+    "multiplier_where_limit_is_passed_today": 2.9979574091099184,
+    "multiplier_where_limit_is_passed_with_control": 4.290283912788903
+  },
+  "threat_frequency_sweep": [
+    {
+      "multiplier": 1.0,
+      "prob_exceeds_tolerance_today": 0.016875,
+      "prob_exceeds_tolerance_with_control": 0.0118475,
+      "expected_loss_today": 11687.281250000002,
+      "expected_loss_with_control": 8181.096875000001,
+      "net_benefit_of_control": -149827.14895833333
+    },
+    {
+      "multiplier": 1.152,
+      "prob_exceeds_tolerance_today": 0.019525,
+      "prob_exceeds_tolerance_with_control": 0.01353,
+      "expected_loss_today": 13463.748000000001,
+      "expected_loss_with_control": 9424.6236,
+      "net_benefit_of_control": -149294.20893333334
+    },
+    {
+      "multiplier": 1.326,
+      "prob_exceeds_tolerance_today": 0.0219875,
+      "prob_exceeds_tolerance_with_control": 0.0156975,
+      "expected_loss_today": 15497.334937500003,
+      "expected_loss_with_control": 10848.134456250002,
+      "net_benefit_of_control": -148684.13285208333
+    },
+    {
+      "multiplier": 1.527,
+      "prob_exceeds_tolerance_today": 0.02578,
+      "prob_exceeds_tolerance_with_control": 0.0183025,
+      "expected_loss_today": 17846.478468750003,
+      "expected_loss_with_control": 12492.534928125,
+      "net_benefit_of_control": -147979.38979270833
+    },
+    {
+      "multiplier": 1.759,
+      "prob_exceeds_tolerance_today": 0.0293925,
+      "prob_exceeds_tolerance_with_control": 0.02066,
+      "expected_loss_today": 20557.92771875,
+      "expected_loss_with_control": 14390.549403125002,
+      "net_benefit_of_control": -147165.95501770833
+    },
+    {
+      "multiplier": 2,
+      "prob_exceeds_tolerance_today": 0.0334375,
+      "prob_exceeds_tolerance_with_control": 0.023635,
+      "expected_loss_today": 23374.562500000004,
+      "expected_loss_with_control": 16362.193750000002,
+      "net_benefit_of_control": -146320.96458333335
+    },
+    {
+      "multiplier": 2.026,
+      "prob_exceeds_tolerance_today": 0.03394,
+      "prob_exceeds_tolerance_with_control": 0.0238975,
+      "expected_loss_today": 23678.431812500003,
+      "expected_loss_with_control": 16574.90226875,
+      "net_benefit_of_control": -146229.80378958335
+    },
+    {
+      "multiplier": 2.333,
+      "prob_exceeds_tolerance_today": 0.039045,
+      "prob_exceeds_tolerance_with_control": 0.0272025,
+      "expected_loss_today": 27266.427156250007,
+      "expected_loss_with_control": 19086.499009375006,
+      "net_benefit_of_control": -145153.40518645835
+    },
+    {
+      "multiplier": 2.687,
+      "prob_exceeds_tolerance_today": 0.04532,
+      "prob_exceeds_tolerance_with_control": 0.0318775,
+      "expected_loss_today": 31403.724718750003,
+      "expected_loss_with_control": 21982.607303125,
+      "net_benefit_of_control": -143912.21591770835
+    },
+    {
+      "multiplier": 3,
+      "prob_exceeds_tolerance_today": 0.05018,
+      "prob_exceeds_tolerance_with_control": 0.0347475,
+      "expected_loss_today": 35061.84375000001,
+      "expected_loss_with_control": 24543.290625,
+      "net_benefit_of_control": -142814.78020833334
+    },
+    {
+      "multiplier": 3.094,
+      "prob_exceeds_tolerance_today": 0.0516,
+      "prob_exceeds_tolerance_with_control": 0.036365,
+      "expected_loss_today": 36160.448187500006,
+      "expected_loss_with_control": 25312.313731250004,
+      "net_benefit_of_control": -142485.19887708334
+    },
+    {
+      "multiplier": 3.563,
+      "prob_exceeds_tolerance_today": 0.059495,
+      "prob_exceeds_tolerance_with_control": 0.0421875,
+      "expected_loss_today": 41641.78309375001,
+      "expected_loss_with_control": 29149.248165625006,
+      "net_benefit_of_control": -140840.79840520833
+    },
+    {
+      "multiplier": 4,
+      "prob_exceeds_tolerance_today": 0.06717,
+      "prob_exceeds_tolerance_with_control": 0.0469475,
+      "expected_loss_today": 46749.12500000001,
+      "expected_loss_with_control": 32724.387500000004,
+      "net_benefit_of_control": -139308.59583333333
+    },
+    {
+      "multiplier": 4.104,
+      "prob_exceeds_tolerance_today": 0.068545,
+      "prob_exceeds_tolerance_with_control": 0.0479425,
+      "expected_loss_today": 47964.60225000001,
+      "expected_loss_with_control": 33575.221575,
+      "net_benefit_of_control": -138943.95265833335
+    },
+    {
+      "multiplier": 4.726,
+      "prob_exceeds_tolerance_today": 0.078025,
+      "prob_exceeds_tolerance_with_control": 0.055195,
+      "expected_loss_today": 55234.09118750001,
+      "expected_loss_with_control": 38663.863831250004,
+      "net_benefit_of_control": -136763.10597708332
+    },
+    {
+      "multiplier": 5,
+      "prob_exceeds_tolerance_today": 0.0826,
+      "prob_exceeds_tolerance_with_control": 0.0589675,
+      "expected_loss_today": 58436.40625000001,
+      "expected_loss_with_control": 40905.48437500001,
+      "net_benefit_of_control": -135802.41145833334
+    },
+    {
+      "multiplier": 5.442,
+      "prob_exceeds_tolerance_today": 0.08958,
+      "prob_exceeds_tolerance_with_control": 0.0635675,
+      "expected_loss_today": 63602.18456250001,
+      "expected_loss_with_control": 44521.52919375001,
+      "net_benefit_of_control": -134252.67796458333
+    },
+    {
+      "multiplier": 6.268,
+      "prob_exceeds_tolerance_today": 0.10327,
+      "prob_exceeds_tolerance_with_control": 0.0729825,
+      "expected_loss_today": 73255.87887500001,
+      "expected_loss_with_control": 51279.11521250001,
+      "net_benefit_of_control": -131356.56967083333
+    },
+    {
+      "multiplier": 7.218,
+      "prob_exceeds_tolerance_today": 0.1188925,
+      "prob_exceeds_tolerance_with_control": 0.083255,
+      "expected_loss_today": 84358.79606250001,
+      "expected_loss_with_control": 59051.15724375001,
+      "net_benefit_of_control": -128025.69451458333
+    },
+    {
+      "multiplier": 8.313,
+      "prob_exceeds_tolerance_today": 0.13505,
+      "prob_exceeds_tolerance_with_control": 0.0954575,
+      "expected_loss_today": 97156.36903125003,
+      "expected_loss_with_control": 68009.45832187502,
+      "net_benefit_of_control": -124186.42262395834
+    },
+    {
+      "multiplier": 9.573,
+      "prob_exceeds_tolerance_today": 0.153805,
+      "prob_exceeds_tolerance_with_control": 0.109395,
+      "expected_loss_today": 111882.34340625002,
+      "expected_loss_with_control": 78317.64038437502,
+      "net_benefit_of_control": -119768.63031145834
+    },
+    {
+      "multiplier": 10,
+      "prob_exceeds_tolerance_today": 0.15993,
+      "prob_exceeds_tolerance_with_control": 0.114545,
+      "expected_loss_today": 116872.81250000001,
+      "expected_loss_with_control": 81810.96875000001,
+      "net_benefit_of_control": -118271.48958333334
+    },
+    {
+      "multiplier": 11.025,
+      "prob_exceeds_tolerance_today": 0.17398,
+      "prob_exceeds_tolerance_with_control": 0.125245,
+      "expected_loss_today": 128852.27578125002,
+      "expected_loss_with_control": 90196.59304687502,
+      "net_benefit_of_control": -114677.65059895834
+    },
+    {
+      "multiplier": 12.696,
+      "prob_exceeds_tolerance_today": 0.19763,
+      "prob_exceeds_tolerance_with_control": 0.1431225,
+      "expected_loss_today": 148381.72275000002,
+      "expected_loss_with_control": 103867.20592500002,
+      "net_benefit_of_control": -108818.81650833334
+    },
+    {
+      "multiplier": 14.622,
+      "prob_exceeds_tolerance_today": 0.2251125,
+      "prob_exceeds_tolerance_with_control": 0.16287,
+      "expected_loss_today": 170891.42643750002,
+      "expected_loss_with_control": 119623.99850625002,
+      "net_benefit_of_control": -102065.90540208333
+    },
+    {
+      "multiplier": 16.839,
+      "prob_exceeds_tolerance_today": 0.2530875,
+      "prob_exceeds_tolerance_with_control": 0.185385,
+      "expected_loss_today": 196802.12896875,
+      "expected_loss_with_control": 137761.490278125,
+      "net_benefit_of_control": -94292.69464270835
+    },
+    {
+      "multiplier": 19.392,
+      "prob_exceeds_tolerance_today": 0.284765,
+      "prob_exceeds_tolerance_with_control": 0.2111175,
+      "expected_loss_today": 226639.75800000003,
+      "expected_loss_with_control": 158647.83060000002,
+      "net_benefit_of_control": -85341.40593333333
+    },
+    {
+      "multiplier": 20,
+      "prob_exceeds_tolerance_today": 0.293255,
+      "prob_exceeds_tolerance_with_control": 0.2163,
+      "expected_loss_today": 233745.62500000003,
+      "expected_loss_with_control": 163621.93750000003,
+      "net_benefit_of_control": -83209.64583333333
+    },
+    {
+      "multiplier": 22.333,
+      "prob_exceeds_tolerance_today": 0.3204325,
+      "prob_exceeds_tolerance_with_control": 0.23813,
+      "expected_loss_today": 261012.05215625002,
+      "expected_loss_with_control": 182708.43650937502,
+      "net_benefit_of_control": -75029.71768645833
+    },
+    {
+      "multiplier": 25.719,
+      "prob_exceeds_tolerance_today": 0.3570225,
+      "prob_exceeds_tolerance_with_control": 0.2686875,
+      "expected_loss_today": 300585.18646875006,
+      "expected_loss_with_control": 210409.63052812504,
+      "net_benefit_of_control": -63157.77739270832
+    },
+    {
+      "multiplier": 29.619,
+      "prob_exceeds_tolerance_today": 0.3985125,
+      "prob_exceeds_tolerance_with_control": 0.30197,
+      "expected_loss_today": 346165.58334375004,
+      "expected_loss_with_control": 242315.90834062503,
+      "net_benefit_of_control": -49483.658330208316
+    },
+    {
+      "multiplier": 34.111,
+      "prob_exceeds_tolerance_today": 0.4393775,
+      "prob_exceeds_tolerance_with_control": 0.338005,
+      "expected_loss_today": 398664.85071875004,
+      "expected_loss_with_control": 279065.39550312504,
+      "net_benefit_of_control": -33733.87811770833
+    },
+    {
+      "multiplier": 39.283,
+      "prob_exceeds_tolerance_today": 0.4832625,
+      "prob_exceeds_tolerance_with_control": 0.3771225,
+      "expected_loss_today": 459111.4693437501,
+      "expected_loss_with_control": 321378.02854062506,
+      "net_benefit_of_control": -15599.892530208308
+    },
+    {
+      "multiplier": 43.732,
+      "prob_exceeds_tolerance_today": 0.5171425,
+      "prob_exceeds_tolerance_with_control": 0.4070125,
+      "expected_loss_today": 511108.18362500006,
+      "expected_loss_with_control": 357775.7285375,
+      "net_benefit_of_control": -0.8782458333007526
+    },
+    {
+      "multiplier": 45.24,
+      "prob_exceeds_tolerance_today": 0.5279425,
+      "prob_exceeds_tolerance_with_control": 0.41749,
+      "expected_loss_today": 528732.6037500001,
+      "expected_loss_with_control": 370112.8226250001,
+      "net_benefit_of_control": 5286.447791666695
+    },
+    {
+      "multiplier": 52.1,
+      "prob_exceeds_tolerance_today": 0.572285,
+      "prob_exceeds_tolerance_with_control": 0.4588375,
+      "expected_loss_today": 608907.3531250001,
+      "expected_loss_with_control": 426235.1471875001,
+      "net_benefit_of_control": 29338.87260416671
+    },
+    {
+      "multiplier": 60.0,
+      "prob_exceeds_tolerance_today": 0.6161275,
+      "prob_exceeds_tolerance_with_control": 0.503795,
+      "expected_loss_today": 701236.8750000001,
+      "expected_loss_with_control": 490865.81250000006,
+      "net_benefit_of_control": 57037.729166666715
+    }
+  ]
+}

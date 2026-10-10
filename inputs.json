@@ -1,0 +1,14 @@
+{
+  "scenario": "M&F Analysis: a former employee or contractor whose access was not removed in time reads or copies client data in the next 12 months (today's manual offboarding)",
+  "iterations": 1000000,
+  "seed": 42,
+  "risk_tolerance_usd": 250000,
+  "tolerance_max_probability": 0.05,
+  "estimates": {
+    "threat_event_frequency": {"label": "Attempts per year", "min": 0.03, "most_likely": 0.1, "max": 0.6},
+    "vulnerability": {"label": "Chance an attempt succeeds", "min": 0.05, "most_likely": 0.2, "max": 0.5},
+    "primary_loss": {"label": "Primary loss per event (USD)", "min": 15000, "most_likely": 75000, "max": 400000},
+    "secondary_loss_probability": {"label": "Chance of secondary loss", "min": 0.25, "most_likely": 0.5, "max": 0.85},
+    "secondary_loss": {"label": "Secondary loss (USD)", "min": 30000, "most_likely": 150000, "max": 1500000}
+  }
+}
