@@ -4,11 +4,13 @@ Write the answers yourself. These are the decisions an interviewer will probe.
 
 ## 1. Scope the scenario (one sentence each)
 
-- **Asset:** what is at risk? (invent a fictional company and data set; no real BCG or client details)
-- **Threat:** who or what acts? (e.g., a departed employee, an attacker using stale credentials)
-- **Effect:** what happens to confidentiality, integrity, or availability?
-- **Time frame:** one year.
-- **Out of scope:** what you are deliberately not modeling.
+- **Asset:** Client workspaces in the cloud data warehouse (220 clients, about 40% of whom have personal data about their own end customers).
+- **Threat:** A former employee or contractor whose access was not removed in time. "Access" means an active SSO account, a local account in one of the 13 apps not behind SSO, or a shared credential or API key they still know.
+- **Effect:** Loss of confidentiality: client data is read or copied, leading to an investigation and client notification.
+- **Time frame:** 12 months.
+- **Out of scope:** Outside attackers, misuse by current staff, accidental exposure, and sabotage or deletion of data.
+
+**Scenario sentence:** In the next 12 months, a former employee or contractor of M&F Analysis whose access has not yet been removed uses it (an active account or a credential they still know) to read or copy client data in the cloud data warehouse, resulting in a confidentiality incident that requires investigation and client notification.
 
 ## 2. Estimate each input as a range (min / most likely / max)
 
