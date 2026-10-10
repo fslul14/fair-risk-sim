@@ -6,7 +6,7 @@ Estimates the annual loss from a former employee or contractor using access that
 
 ## How this was built
 
-I built this with Claude (Anthropic). Claude wrote the simulation code, the calibration quiz, the fictional company profile, and the starting estimates, worksheet text, and this write-up. I took the calibration quiz myself (first attempt 2 of 10 inside my ranges, which showed my ranges were too narrow; later 19 of 20 on a fresh set; see `calibration/calibration_log.csv`), and set up the repository. The estimates below are my working baseline and nobody has measured them. Anything I change goes in this table.
+I built this with Claude (Anthropic). Claude wrote the simulation code, the calibration quiz, the fictional company profile, and the starting estimates, worksheet text, and this write-up. I took the calibration quiz myself (my scores are in `calibration/calibration_log.csv`: 8 of 10 on set 1 and 6 of 20 on the fresh set 2, against a target of about 9 and 18, so my ranges were too narrow), and set up the repository. The estimates below are my working baseline and nobody has measured them. Anything I change goes in this table.
 
 | Date | Input | Was | Now | Why |
 |---|---|---|---|---|
